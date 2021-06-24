@@ -17,7 +17,7 @@ def read_mac_id(cnt):
     #         r.write(i + '\n')
     for c in range(1, int(cnt)):
         r = open(f'{c}_test', 'w')
-        for i in result_list[]
+        #for i in result_list[]
 
     r1 = open('4_insert_mac.txt', 'w')
     # r2 = open('2_insert_mac.txt', 'w')
