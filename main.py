@@ -9,9 +9,10 @@ arr_stbId = []
 # 터널링 정보
 # 1.255.145.181 통해서
 # 192.168.145.254:1521 을 2541 포트로 변경후 실행 요망!
+cnt = ''
 
 if __name__ == '__main__':
-    f = open("mac_address.txt", 'rt')
+    f = open(f"{cnt}_insert_mac.txt", 'rt')
     lines = f.readlines()
     for line in lines:
         line = line.lower().replace('\n', '')
@@ -49,10 +50,10 @@ if __name__ == '__main__':
 
     today = datetime.today().strftime("%Y.%m.%d-")
 
-    r = open(today + "stb_id.txt", 'w')
+    r = open(today + f"({cnt})stb_id.txt", 'w')
 
     for i in result_stb_ids:
-        r.write(str(i)+ '\n')
+        r.write(str(i[1]) + '\n')
 
     r.close()
     f.close()
