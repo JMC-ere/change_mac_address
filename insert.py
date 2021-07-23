@@ -1,4 +1,25 @@
-def read_mac_id(cnt):
+import json
+
+
+def read_2021():
+
+    with open("2021_result.json", "r") as f:
+        json_data = json.load(f)
+
+    result_dict = {}
+
+    aggs_data = json_data['aggregations']['target']
+    for i in aggs_data['buckets']:
+        print(i['key'])
+        for z in i['NAME']['buckets']:
+            print(z['key'])
+            print(str(z['key']).upper().replace(':', ''))
+
+
+read_2021()
+
+
+def read_mac_id():
     f = open("mac_id.txt", 'rt')
     lines = f.readlines()
     r = open('insert_mac.txt', 'w')
@@ -10,21 +31,20 @@ def read_mac_id(cnt):
         result_list.append(test)
         r.write(test + '\n')
 
-    # for c in range(1, cnt):
-    #     r = open(f'{c}_insert_mac.txt', 'w')
-    #
-    #     for i in result_list[0:int(f'{c}')+000]:
-    #         r.write(i + '\n')
-    for c in range(1, int(cnt)):
-        r = open(f'{c}_test', 'w')
-        #for i in result_list[]
 
-    r1 = open('4_insert_mac.txt', 'w')
-    # r2 = open('2_insert_mac.txt', 'w')
-    # r3 = open('3_insert_mac.txt', 'w')
-    # r4 = open('4_insert_mac.txt', 'w')
+def change_mac():
 
-    for i in result_list[3000:4000]:
-        r1.write(i+'\n')
+    f = open('insert_mac.txt', 'rt')
+    lines = f.readlines()
 
-read_mac_id(4)
+    for line in lines:
+        line = line.replace('\n', '')
+        line = line.split(':')
+        # print(line)
+        list_line = []
+        for i in range(0, len(line)):
+            line_s = line[i]
+            list_line.append(line_s)
+
+        line_r = ':'.join(list_line)
+        print(f'"{line_r.lower()}",')

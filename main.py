@@ -53,7 +53,7 @@ if __name__ == '__main__':
     r = open(today + f"({cnt})stb_id.txt", 'w')
 
     for i in result_stb_ids:
-        r.write(str(i[1]) + '\n')
+        r.write(str(i) + '\n')
 
     r.close()
     f.close()
