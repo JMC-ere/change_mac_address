@@ -12,7 +12,7 @@ arr_stbId = []
 cnt = ''
 
 if __name__ == '__main__':
-    f = open(f"{cnt}_insert_mac.txt", 'rt')
+    f = open(f"insert_mac.txt", 'rt')
     lines = f.readlines()
     for line in lines:
         line = line.lower().replace('\n', '')
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
     today = datetime.today().strftime("%Y.%m.%d-")
 
-    r = open(today + f"({cnt})stb_id.txt", 'w')
+    r = open(today + f"stb_id.txt", 'w')
 
     for i in result_stb_ids:
         r.write(str(i) + '\n')
